@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Plataforma de votação para filmes e séries - Vote no que você acha dos títulos que estão dando o que falar"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Voting - Vote em filmes e séries</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="header-content">
+        <h1 class="main-title">
+          Assista<span class="dot">.</span> Vote<span class="dot">.</span><br />
+          Goste ou não goste<span class="dot">.</span>
+        </h1>
+
+        <p class="site-description">
+          Aqui você confere os títulos que estão dando o que falar — ou pelo
+          menos tentando. Explore filmes e séries com potencial de virar seu
+          novo vício… ou seu novo ranço. Basta rolar, assistir (ou não) e dar
+          sua opinião com um simples clique. Sua voz de fã conta (e muito)!
+        </p>
+
+        <button
+          class="create-button"
+          id="openModal"
+          type="button"
+          aria-label="Abrir modal para listar novo filme ou série"
+        >
+          <span>Listar algo novo</span>
+          <img src="./assets/star.svg" alt="" width="15" height="15" />
+        </button>
+
+        <section class="voting-stats" aria-label="Estatísticas de votação">
+          <div class="counter">
+            <div class="counter-positive">
+              <span class="counter-number">219</span>
+              <span class="counter-label">Gostaram</span>
+            </div>
+            <div class="counter-negative">
+              <span class="counter-number">21</span>
+              <span class="counter-label">Não gostaram</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </header>
+
+    <div
+      id="modal"
+      class="modal"
+      role="dialog"
+      aria-labelledby="modal-title"
+      aria-hidden="true"
+    >
+      <div class="modal-content">
+        <header class="modal-header">
+          <h2 id="modal-title" class="visually-hidden">
+            Adicionar novo filme ou série
+          </h2>
+          <button class="close" type="button" aria-label="Fechar modal">
+            &times;
+          </button>
+        </header>
+
+        <form class="modal-form" id="addItemForm">
+          <div class="modal-input-section">
+            <label for="name">Nome do filme ou série</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Ex.: Se beber não case"
+              required
+              aria-describedby="name-help"
+            />
+            <small id="name-help" class="visually-hidden"
+              >Digite o nome completo do filme ou série</small
+            >
+          </div>
+
+          <div class="modal-input-section">
+            <label for="category">Selecione a categoria</label>
+            <select
+              class="select-category"
+              id="category"
+              name="category"
+              required
+              aria-describedby="category-help"
+            >
+              <option value="">Selecione uma categoria</option>
+              <option value="Comédia">Comédia</option>
+              <option value="Ação">Ação</option>
+              <option value="Romance">Romance</option>
+              <option value="Suspense">Suspense</option>
+              <option value="Drama">Drama</option>
+            </select>
+            <small id="category-help" class="visually-hidden"
+              >Escolha a categoria que melhor descreve o conteúdo</small
+            >
+          </div>
+
+          <div class="modal-input-section">
+            <label for="description">Descrição (Sinopse)</label>
+            <textarea
+              id="description"
+              name="description"
+              placeholder="Sinopse..."
+              rows="3"
+              aria-describedby="description-help"
+            ></textarea>
+            <small id="description-help" class="visually-hidden"
+              >Descreva brevemente o enredo do filme ou série</small
+            >
+          </div>
+
+          <div class="file-upload-section">
+            <span class="upload-label">Seleciona ou arraste a capa</span>
+            <div class="drag-and-drop">
+              <label for="input-file" class="drop-area" id="drop-area">
+                <input
+                  type="file"
+                  accept="image/*"
+                  id="input-file"
+                  name="cover"
+                  aria-describedby="file-help"
+                />
+                <span class="drop-text">Clique aqui ou arraste uma imagem</span>
+              </label>
+              <small id="file-help" class="visually-hidden"
+                >Formatos aceitos: JPG, PNG, GIF. Tamanho máximo: 5MB</small
+              >
+            </div>
+          </div>
+
+          <button class="button-add" type="submit">Listar novo item</button>
+        </form>
+      </div>
+    </div>
+
+    <hr class="separator" role="presentation" />
+
+    <main class="main-content">
+      <section class="voting-section-intro">
+        <h2 class="section-title">
+          Vote <span class="bg-text">o que você acha</span> desses filmes ou
+          séries
+        </h2>
+      </section>
+
+      <section
+        class="content-items"
+        aria-label="Lista de filmes e séries para votação"
+      >
+        <article class="content-item">
+          <div class="content-section">
+            <div class="image-container">
+              <img
+                src="./assets/modern-family.jpg"
+                alt="Capa da série Modern Family"
+                class="content-image"
+                loading="lazy"
+              />
+            </div>
+
+            <div class="content-description">
+              <header class="content-header">
+                <h3 class="content-title">Modern Family</h3>
+                <span class="content-category">Série: Comédia</span>
+              </header>
+
+              <p class="content-synopsis">
+                O dia a dia de três famílias ligadas entre si. Jay Pritchett (Ed
+                O'Neill) é um homem mais velho que se casa com a latina Glória
+                (Sofía Vergara), muitos anos mais nova que ele. Os dois moram
+                com o filho dela, Manny (Rico Rodriguez), e convivem diariamente
+                com os filhos do primeiro casamento de Jay: Caire (Julie Bowen)
+                e Mitchell (Jesse Tyler Ferguson). Ela é uma dona de casa casada
+                com o corretor de imóveis Phil Dunphy (Ty Burrell) e que luta
+                para dar a melhor educação para os filhos Haley (Sarah Hyland),
+                Alex (Ariel Winter) e Luke (Nolan Gould). Já Mitchell vive um
+                relacionamento com Cameron Tucker (Eric Stonestreet), que tem
+                como fruto a filha adotiva Lily (Aubrey Anderson-Emmons).
+              </p>
+
+              <div class="voting-actions">
+                <button
+                  class="btn-like"
+                  type="button"
+                  data-item-id="modern-family"
+                  data-vote-type="like"
+                  aria-label="Votar que gostou de Modern Family"
+                >
+                  <span class="vote-icon">👍</span>
+                  <span class="vote-text">Gostei</span>
+                  <span class="vote-count">(219)</span>
+                </button>
+
+                <button
+                  class="btn-notlike"
+                  type="button"
+                  data-item-id="modern-family"
+                  data-vote-type="dislike"
+                  aria-label="Votar que não gostou de Modern Family"
+                >
+                  <span class="vote-icon">👎</span>
+                  <span class="vote-text">Não gostei</span>
+                  <span class="vote-count">(21)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
