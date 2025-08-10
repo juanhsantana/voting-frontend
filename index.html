@@ -38,11 +38,11 @@
         <section class="voting-stats" aria-label="Estatísticas de votação">
           <div class="counter">
             <div class="counter-positive">
-              <span class="counter-number">219</span>
+              <span class="counter-number">0</span>
               <span class="counter-label">Gostaram</span>
             </div>
             <div class="counter-negative">
-              <span class="counter-number">21</span>
+              <span class="counter-number">0</span>
               <span class="counter-label">Não gostaram</span>
             </div>
           </div>
@@ -98,6 +98,11 @@
               <option value="Romance">Romance</option>
               <option value="Suspense">Suspense</option>
               <option value="Drama">Drama</option>
+              <option value="Terror">Terror</option>
+              <option value="Ficção Científica">Ficção Científica</option>
+              <option value="Aventura">Aventura</option>
+              <option value="Animação">Animação</option>
+              <option value="Documentário">Documentário</option>
             </select>
             <small id="category-help" class="visually-hidden"
               >Escolha a categoria que melhor descreve o conteúdo</small
@@ -156,67 +161,12 @@
         class="content-items"
         aria-label="Lista de filmes e séries para votação"
       >
-        <article class="content-item">
-          <div class="content-section">
-            <div class="image-container">
-              <img
-                src="./assets/modern-family.jpg"
-                alt="Capa da série Modern Family"
-                class="content-image"
-                loading="lazy"
-              />
-            </div>
-
-            <div class="content-description">
-              <header class="content-header">
-                <h3 class="content-title">Modern Family</h3>
-                <span class="content-category">Série: Comédia</span>
-              </header>
-
-              <p class="content-synopsis">
-                O dia a dia de três famílias ligadas entre si. Jay Pritchett (Ed
-                O'Neill) é um homem mais velho que se casa com a latina Glória
-                (Sofía Vergara), muitos anos mais nova que ele. Os dois moram
-                com o filho dela, Manny (Rico Rodriguez), e convivem diariamente
-                com os filhos do primeiro casamento de Jay: Caire (Julie Bowen)
-                e Mitchell (Jesse Tyler Ferguson). Ela é uma dona de casa casada
-                com o corretor de imóveis Phil Dunphy (Ty Burrell) e que luta
-                para dar a melhor educação para os filhos Haley (Sarah Hyland),
-                Alex (Ariel Winter) e Luke (Nolan Gould). Já Mitchell vive um
-                relacionamento com Cameron Tucker (Eric Stonestreet), que tem
-                como fruto a filha adotiva Lily (Aubrey Anderson-Emmons).
-              </p>
-
-              <div class="voting-actions">
-                <button
-                  class="btn-like"
-                  type="button"
-                  data-item-id="modern-family"
-                  data-vote-type="like"
-                  aria-label="Votar que gostou de Modern Family"
-                >
-                  <span class="vote-icon">👍</span>
-                  <span class="vote-text">Gostei</span>
-                  <span class="vote-count">(219)</span>
-                </button>
-
-                <button
-                  class="btn-notlike"
-                  type="button"
-                  data-item-id="modern-family"
-                  data-vote-type="dislike"
-                  aria-label="Votar que não gostou de Modern Family"
-                >
-                  <span class="vote-icon">👎</span>
-                  <span class="vote-text">Não gostei</span>
-                  <span class="vote-count">(21)</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </article>
+        <div class="loading-state">
+          <p>Seja o primeiro a listar algo...</p>
+        </div>
       </section>
     </main>
     <script src="script.js"></script>
   </body>
 </html>
+
